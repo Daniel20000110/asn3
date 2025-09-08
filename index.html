@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASN3 - Calvin's Online Shop</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Link to fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">SoleMate</a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+        <ul class="navbar-nav ms-md-auto">
+          <li class="nav-item">
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="icon-size">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"></path>
+              </svg>
+              <span id="cart-count" class="cart-count">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Slider -->
+  <header>
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/slide1.webp" class="d-block w-100" alt="Hero 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Step into something new.</h5>
+            <p>Comfort meets style with our curated collection of everyday sneakers.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/slide2.webp" class="d-block w-100" alt="Hero 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide</h5>
+            <p>Some text for the second slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Preview</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <img class="custom" src="images/shoelg.webp" alt="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Latest Products Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Latest Products</h2>
+    <div class="row g-4">
+      <!-- Product Card -->
+      <div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up">
+        <div class="card border-light product-card">
+          <img src="images/shoe1.webp" class="card-img-top" alt="Product">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cloud Runner 2.0</h5>
+            <p class="card-text">Perfect for daily wear.</p>
+            <div class="d-flex gap-2 ">
+              <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+              <button class="btn btn-primary rounded-pill">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up">
+        <div class="card border-light product-card">
+          <img src="images/shoe1.webp" class="card-img-top" alt="Product">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cloud Runner 2.0</h5>
+            <p class="card-text">Perfect for daily wear.</p>
+            <div class="d-flex gap-2 ">
+              <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+              <button class="btn btn-primary rounded-pill">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up">
+        <div class="card border-light product-card">
+          <img src="images/shoe2.webp" class="card-img-top" alt="Product">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cloud Runner 2.0</h5>
+            <p class="card-text">Perfect for daily wear.</p>
+            <div class="d-flex gap-2 ">
+              <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+              <button class="btn btn-primary rounded-pill">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div><div class="col-12 col-sm-6 col-xl-3" data-aos="fade-up">
+        <div class="card border-light product-card">
+          <img src="images/shoe3.webp" class="card-img-top" alt="Product">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cloud Runner 2.0</h5>
+            <p class="card-text">Perfect for daily wear.</p>
+            <div class="d-flex gap-2 ">
+             <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+              <button class="btn btn-primary rounded-pill">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add more product cards -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3">
+    <p class="mb-0">&copy; 2025 Calvin's Online Shop. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Link to JS -->
+  <script src="script.js"></script>
+</body>
+</html>
